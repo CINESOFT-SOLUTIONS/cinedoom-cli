@@ -8,9 +8,9 @@ Escolhemos as estruturas de dados: lista simplesmente encadeada pra filmes e ing
 
 Ficou decidido também que os dados vão ser salvos em arquivos `.bin` e reconstruídos em memória toda vez que o programa iniciar.
 
-## 22/11
+Definimos a estrutura de arquivos do projeto. Separamos o código em módulos: cada entidade (filmes, sessões, ingressos) tem seu próprio `.c` com as funções relacionadas. Os headers ficam em `include/` e os arquivos de código em `src/`. Um `tipos.h` central guarda todos os enums e structs pra evitar problema de inclusão circular, já que as entidades se referenciam entre si. Os docs foram pra uma pasta `docs/` pra não misturar com o código.
 
-Definimos a estrutura de arquivos do projeto. Separamos o código em módulos: cada entidade (filmes, sessões, ingressos) tem seu próprio `.c` com as funções relacionadas. Um `tipos.h` central guarda todos os enums e structs pra evitar problema de inclusão circular, já que as entidades se referenciam entre si. Os docs foram pra uma pasta `docs/` pra não misturar com o código.
+## 22/11
 
 Criamos o `tipos.h` com todas as definições: enums de gênero, classificação e tipo de ingresso, structs das entidades e os nós das listas encadeadas, e as 4 salas fixas como constante.
 
@@ -22,4 +22,3 @@ Criamos `filmes.h` e `filmes.c` com o módulo completo de filmes: cadastro, list
 
 A validação de sessão vinculada (`filmeTemSessao`) ainda não existe porque `sessoes.c` não foi criado. Resolvemos isso com um stub — uma versão temporária da função que sempre retorna 0 (sem sessão). Quando `sessoes.c` for criado, ele substitui o stub automaticamente.
 
-Reorganizamos a estrutura de pastas: os `.h` foram para `include/` e os `.c` para `src/`. A ideia é separar a interface (o que cada módulo oferece) da implementação (como funciona). Os `#include` nos `.c` apontam para `../include/`.
