@@ -15,9 +15,9 @@ NoIngresso *listaIngressos = NULL;
 
 static void exibirBanner() {
     printf("\n");
-    printf("  ==================\n");
-    printf("    CINEDOOM CLI\n");
-    printf("  ==================\n");
+    printf("  +==============================================================+\n");
+    printf("  |                      CINEDOOM CLI                            |\n");
+    printf("  +==============================================================+\n");
 }
 
 /* ── Menus ──────────────────────────────────────────────────────────────── */
@@ -27,10 +27,12 @@ static void menuFilmes() {
     do {
         limparTela();
         exibirBanner();
-        printf("  -- FILMES --\n");
-        printf("  [1] Cadastrar filme\n");
-        printf("  [2] Listar filmes\n");
-        printf("  [0] Voltar\n");
+        printf("  |                        FILMES                                |\n");
+        printf("  +==============================================================+\n");
+        printf("  |   [1] Cadastrar filme                                        |\n");
+        printf("  |   [2] Listar filmes                                          |\n");
+        printf("  |   [0] Voltar                                                 |\n");
+        printf("  +==============================================================+\n");
         printf("  >> ");
         op = lerInt();
         switch (op) {
@@ -45,10 +47,12 @@ static void menuSessoes() {
     do {
         limparTela();
         exibirBanner();
-        printf("  -- SESSOES --\n");
-        printf("  [1] Cadastrar sessao\n");
-        printf("  [2] Listar sessoes\n");
-        printf("  [0] Voltar\n");
+        printf("  |                        SESSOES                               |\n");
+        printf("  +==============================================================+\n");
+        printf("  |   [1] Cadastrar sessao                                       |\n");
+        printf("  |   [2] Listar sessoes                                         |\n");
+        printf("  |   [0] Voltar                                                 |\n");
+        printf("  +==============================================================+\n");
         printf("  >> ");
         op = lerInt();
         switch (op) {
@@ -61,7 +65,8 @@ static void menuSessoes() {
 static void menuSalas() {
     limparTela();
     exibirBanner();
-    printf("  -- SALAS --\n\n");
+    printf("  |                         SALAS                                |\n");
+    printf("  +==============================================================+\n\n");
     for (int i = 0; i < NUM_SALAS; i++)
         printf("  %s — %d fileiras x %d colunas (%d assentos)\n",
             SALAS[i].nome, SALAS[i].fileiras, SALAS[i].colunas,
@@ -74,11 +79,13 @@ static void menuIngressos() {
     do {
         limparTela();
         exibirBanner();
-        printf("  -- INGRESSOS --\n");
-        printf("  [1] Vender ingresso\n");
-        printf("  [2] Cancelar ingresso\n");
-        printf("  [3] Listar ingressos de uma sessao\n");
-        printf("  [0] Voltar\n");
+        printf("  |                       INGRESSOS                              |\n");
+        printf("  +==============================================================+\n");
+        printf("  |   [1] Vender ingresso                                        |\n");
+        printf("  |   [2] Cancelar ingresso                                      |\n");
+        printf("  |   [3] Listar ingressos de uma sessao                         |\n");
+        printf("  |   [0] Voltar                                                 |\n");
+        printf("  +==============================================================+\n");
         printf("  >> ");
         op = lerInt();
         switch (op) {
@@ -116,11 +123,14 @@ int main() {
     do {
         limparTela();
         exibirBanner();
-        printf("  [1] Filmes\n");
-        printf("  [2] Sessoes\n");
-        printf("  [3] Salas\n");
-        printf("  [4] Ingressos\n");
-        printf("  [0] Sair\n");
+        printf("  |                     MENU PRINCIPAL                           |\n");
+        printf("  +==============================================================+\n");
+        printf("  |   [1] Filmes                                                 |\n");
+        printf("  |   [2] Sessoes                                                |\n");
+        printf("  |   [3] Salas                                                  |\n");
+        printf("  |   [4] Ingressos                                              |\n");
+        printf("  |   [0] Sair                                                   |\n");
+        printf("  +==============================================================+\n");
         printf("  >> ");
         op = lerInt();
         switch (op) {
