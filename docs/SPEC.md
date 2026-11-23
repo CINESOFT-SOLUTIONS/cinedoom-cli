@@ -4,16 +4,23 @@
 
 ```
 cinedoom-cli/
-├── main.c           ← menu principal, chama funções dos outros módulos
-├── tipos.h          ← enums, structs e constantes (compartilhado por todos)
-├── filmes.c         ← funções de filme (cadastrar, listar, atualizar, excluir)
-├── sessoes.c        ← funções de sessão
-├── ingressos.c      ← funções de ingresso
-├── utils.c          ← funções auxiliares (limpar tela, ler string, etc)
-└── dados/
-    ├── filmes.bin
-    ├── sessoes.bin
-    └── ingressos.bin
+├── include/
+│   ├── tipos.h          ← enums, structs e constante SALAS (compartilhado por todos)
+│   ├── utils.h
+│   ├── filmes.h
+│   ├── sessoes.h
+│   └── ingressos.h
+├── src/
+│   ├── main.c           ← menu principal
+│   ├── utils.c          ← funções auxiliares
+│   ├── filmes.c
+│   ├── sessoes.c
+│   └── ingressos.c
+├── dados/
+│   ├── filmes.bin
+│   ├── sessoes.bin
+│   └── ingressos.bin
+└── docs/
 ```
 
 ---

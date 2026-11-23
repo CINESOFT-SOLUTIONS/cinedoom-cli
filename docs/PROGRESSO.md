@@ -21,3 +21,5 @@ Criamos `utils.h` e `utils.c` com as funções auxiliares que todos os módulos 
 Criamos `filmes.h` e `filmes.c` com o módulo completo de filmes: cadastro, listagem, atualização e exclusão, mais as funções de carregar e salvar no `.bin`. O código mantém os filmes ordenados por código na lista. Algumas regras de negócio já estão aplicadas aqui: não deixa excluir filme com sessão vinculada (RN01), não deixa alterar a duração se já tiver sessão (RN09), e ao carregar do arquivo o próximo código continua de onde parou pra não repetir (RN14).
 
 A validação de sessão vinculada (`filmeTemSessao`) ainda não existe porque `sessoes.c` não foi criado. Resolvemos isso com um stub — uma versão temporária da função que sempre retorna 0 (sem sessão). Quando `sessoes.c` for criado, ele substitui o stub automaticamente.
+
+Reorganizamos a estrutura de pastas: os `.h` foram para `include/` e os `.c` para `src/`. A ideia é separar a interface (o que cada módulo oferece) da implementação (como funciona). Os `#include` nos `.c` apontam para `../include/`.
