@@ -22,3 +22,5 @@ Criamos `filmes.h` e `filmes.c` com o módulo completo de filmes: cadastro, list
 
 Criamos `sessoes.h` e `sessoes.c` com o módulo completo de sessões: lista duplamente encadeada ordenada por data/hora, CRUD com persistência em `sessoes.bin` e todas as validações do escopo. A detecção de conflito de horário compara os intervalos de duas sessões na mesma sala e na mesma data convertendo tudo pra minutos. O módulo também implementa a verificação real de `filmeTemSessao`, que antes era um stub em `filmes.c`.
 
+Criamos `ingressos.h` e `ingressos.c` com venda, cancelamento e listagem de ingressos. O carregamento do `.bin` já remonta a matriz de assentos de cada sessão, que não é gravada em disco. O mapa de assentos é exibido na venda com `O` pra livre e `X` pra ocupado. O módulo implementa a verificação real de `sessaoTemIngresso`, que antes era stub em `sessoes.c`.
+
