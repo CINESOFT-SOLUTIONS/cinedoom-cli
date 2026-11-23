@@ -1,5 +1,23 @@
 # Especificação do Sistema — CineDoom CLI
 
+## 0. Estrutura de Arquivos
+
+```
+cinedoom-cli/
+├── main.c           ← menu principal, chama funções dos outros módulos
+├── tipos.h          ← enums, structs e constantes (compartilhado por todos)
+├── filmes.c         ← funções de filme (cadastrar, listar, atualizar, excluir)
+├── sessoes.c        ← funções de sessão
+├── ingressos.c      ← funções de ingresso
+├── utils.c          ← funções auxiliares (limpar tela, ler string, etc)
+└── dados/
+    ├── filmes.bin
+    ├── sessoes.bin
+    └── ingressos.bin
+```
+
+---
+
 ## 1. Funcionalidades
 
 ### A. Gerenciamento de Filmes
