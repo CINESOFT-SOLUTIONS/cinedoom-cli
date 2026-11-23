@@ -122,8 +122,6 @@ NoSessao *buscarSessaoPorCodigo(NoSessao *lista, int codigo) {
 }
 
 int filmeTemSessao(int cod_filme) {
-    /* implementação real — substitui o stub de filmes.c */
-    extern NoSessao *listaSessoes;
     NoSessao *atual = listaSessoes;
     while (atual) {
         if (atual->dado.cod_filme == cod_filme) return 1;
@@ -171,8 +169,6 @@ static int haConflito(NoSessao *lista, int id_sala, int dia, int mes, int ano,
             atual->dado.mes == mes &&
             atual->dado.ano == ano) {
 
-            /* busca duracao do filme da sessao existente */
-            extern NoFilme *listaFilmes;
             NoFilme *nf = buscarFilmePorCodigo(listaFilmes, atual->dado.cod_filme);
             int durExist = nf ? nf->dado.duracao : 120;
 
@@ -442,8 +438,3 @@ void excluirSessao(NoSessao **lista) {
     pausar();
 }
 
-/* ── Stub: implementado em ingressos.c ──────────────────────────────────── */
-int __attribute__((weak)) sessaoTemIngresso(int cod_sessao) {
-    (void)cod_sessao;
-    return 0;
-}

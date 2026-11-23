@@ -95,7 +95,6 @@ void liberarIngressos(NoIngresso *lista) {
 /* ── Helpers ────────────────────────────────────────────────────────────── */
 
 int sessaoTemIngresso(int cod_sessao) {
-    extern NoIngresso *listaIngressos;
     NoIngresso *atual = listaIngressos;
     while (atual) {
         if (atual->dado.cod_sessao == cod_sessao) return 1;

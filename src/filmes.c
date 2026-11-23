@@ -342,8 +342,3 @@ void excluirFilme(NoFilme **lista) {
     pausar();
 }
 
-/* ── Stub: implementado em sessoes.c ────────────────────────────────────── */
-int __attribute__((weak)) filmeTemSessao(int cod_filme) {
-    (void)cod_filme;
-    return 0;
-}

@@ -92,4 +92,9 @@ static const Sala SALAS[NUM_SALAS] = {
     {4, "Sala VIP",  6, 10}
 };
 
+/* listas globais acessiveis por todos os modulos */
+extern NoFilme    *listaFilmes;
+extern NoSessao   *listaSessoes;
+extern NoIngresso *listaIngressos;
+
 #endif
