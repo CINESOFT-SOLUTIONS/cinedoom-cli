@@ -130,7 +130,7 @@ int filmeTemSessao(int cod_filme) {
     return 0;
 }
 
-/* funcoes auxiliares */
+/* Funções Auxiliares */
 
 int hojeEmMinutos(int *diaH, int *mesH, int *anoH) {
     time_t t = time(NULL);

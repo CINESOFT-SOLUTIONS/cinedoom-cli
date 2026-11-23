@@ -92,7 +92,7 @@ void liberarIngressos(NoIngresso *lista) {
     }
 }
 
-/* funcoes auxiliares */
+/* Funções Auxiliares */
 
 int sessaoTemIngresso(int cod_sessao) {
     NoIngresso *atual = listaIngressos;
