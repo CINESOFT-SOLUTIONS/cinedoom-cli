@@ -96,7 +96,7 @@ NoFilme *buscarFilmePorCodigo(NoFilme *lista, int codigo) {
     return NULL;
 }
 
-/* ── Helpers de exibição ────────────────────────────────────────────────── */
+/* funcoes auxiliares */
 
 char *nomeGenero(Genero g) {
     switch (g) {
