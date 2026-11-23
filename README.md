@@ -49,7 +49,7 @@ Desenvolver um projeto compreendendo uma área real de mercado, contendo:
 
 ## Progresso
 
-**[0%]** — Em desenvolvimento
+**[100%]** — Concluído
 
 ---
 
