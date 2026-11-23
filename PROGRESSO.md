@@ -1,6 +1,6 @@
 # Progresso — CineDoom CLI
 
-## 22/11
+## 17/11
 
 Definimos o escopo do projeto: sistema de cinema em C com 12 funcionalidades distribuídas entre filmes, sessões, salas e ingressos.
 
