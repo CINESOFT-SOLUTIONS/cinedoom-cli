@@ -13,7 +13,6 @@ void limparTela() {
 
 void pausar() {
     printf("\nPressione Enter para continuar...");
-    limparBuffer();
     getchar();
 }
 
