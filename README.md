@@ -37,13 +37,18 @@ Desenvolver um projeto compreendendo uma área real de mercado, contendo:
 
 ## Funcionalidades
 
-- [ ] Cadastro de filmes
-- [ ] Cadastro de salas
-- [ ] Cadastro de sessões
-- [ ] Venda de ingressos
-- [ ] Consulta de programação
-- [ ] Cancelamento de reservas
-- [ ] Relatórios de ocupação
+- [x] Cadastrar filme
+- [x] Listar filmes
+- [x] Atualizar dados do filme
+- [x] Excluir filme
+- [x] Cadastrar sessão
+- [x] Listar sessões
+- [x] Atualizar dados da sessão
+- [x] Excluir sessão
+- [x] Listar salas disponíveis
+- [x] Vender ingresso
+- [x] Cancelar ingresso
+- [x] Listar ingressos de uma sessão
 
 ---
 
