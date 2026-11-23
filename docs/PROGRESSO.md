@@ -24,3 +24,5 @@ Criamos `sessoes.h` e `sessoes.c` com o módulo completo de sessões: lista dupl
 
 Criamos `ingressos.h` e `ingressos.c` com venda, cancelamento e listagem de ingressos. O carregamento do `.bin` já remonta a matriz de assentos de cada sessão, que não é gravada em disco. O mapa de assentos é exibido na venda com `O` pra livre e `X` pra ocupado. O módulo implementa a verificação real de `sessaoTemIngresso`, que antes era stub em `sessoes.c`.
 
+Integramos tudo no `main.c`. As três listas principais são variáveis globais declaradas em `main.c` e acessadas pelos outros módulos via `extern`. O programa carrega os dados do disco ao iniciar e libera a memória ao sair. O banner ASCII original foi mantido.
+

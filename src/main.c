@@ -1,6 +1,19 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include "../include/tipos.h"
+#include "../include/utils.h"
+#include "../include/filmes.h"
+#include "../include/sessoes.h"
+#include "../include/ingressos.h"
 
-void menu() {
+/* listas globais — acessadas via extern em sessoes.c e ingressos.c */
+NoFilme   *listaFilmes   = NULL;
+NoSessao  *listaSessoes  = NULL;
+NoIngresso *listaIngressos = NULL;
+
+/* ── Banner ─────────────────────────────────────────────────────────────── */
+
+static void exibirBanner() {
     printf("\n");
     printf("  +==============================================================+\n");
     printf("  |   ____ ___ _   _ _____ ____   ___   ___  __  __              |\n");
@@ -10,62 +23,140 @@ void menu() {
     printf("  |  \\____|___|_| \\_|_____|____/ \\___/ \\___/|_|  |_|             |\n");
     printf("  |                                                              |\n");
     printf("  +==============================================================+\n");
-    printf("  |                       MENU PRINCIPAL                         |\n");
-    printf("  +==============================================================+\n");
-    printf("  |                                                              |\n");
-    printf("  |   [1] - Consultar Filmes                                     |\n");
-    printf("  |   [2] - Consultar Sessões, Horários e Salas                  |\n");
-    printf("  |   [3] - Consultar Disponibilidade de Ingressos               |\n");
-    printf("  |   [4] - Comprar Ingressos                                    |\n");
-    printf("  |   [5] - Consultar Ingressos                                  |\n");
-    printf("  |   [6] - Cancelar Ingresso Adquirido                          |\n");
-    printf("  |                                                              |\n");
-    printf("  |   [9] - Sair do Sistema                                      |\n");
-    printf("  |                                                              |\n");
-    printf("  +==============================================================+\n");
-    printf("   >> Escolha uma opção: ");
 }
 
-//PQP não sei escrever cód mais kakakakakakakaka
+/* ── Menus ──────────────────────────────────────────────────────────────── */
 
-int main() {
-int opcao;
+static void menuFilmes() {
+    int op;
+    do {
+        limparTela();
+        exibirBanner();
+        printf("  |                        FILMES                                |\n");
+        printf("  +==============================================================+\n");
+        printf("  |   [1] Cadastrar filme                                        |\n");
+        printf("  |   [2] Listar filmes                                          |\n");
+        printf("  |   [0] Voltar                                                 |\n");
+        printf("  +==============================================================+\n");
+        printf("  >> ");
+        op = lerInt();
+        switch (op) {
+            case 1: cadastrarFilme(&listaFilmes); salvarFilmes(listaFilmes); break;
+            case 2: listarFilmes(listaFilmes); break;
+        }
+    } while (op != 0);
+}
 
-    do
-    {
-        menu();
-        scanf("%d", &opcao);
-        switch (opcao){
+static void menuSessoes() {
+    int op;
+    do {
+        limparTela();
+        exibirBanner();
+        printf("  |                        SESSOES                               |\n");
+        printf("  +==============================================================+\n");
+        printf("  |   [1] Cadastrar sessao                                       |\n");
+        printf("  |   [2] Listar sessoes                                         |\n");
+        printf("  |   [0] Voltar                                                 |\n");
+        printf("  +==============================================================+\n");
+        printf("  >> ");
+        op = lerInt();
+        switch (op) {
+            case 1: cadastrarSessao(&listaSessoes, listaFilmes); salvarSessoes(listaSessoes); break;
+            case 2: listarSessoes(listaSessoes, listaFilmes); break;
+        }
+    } while (op != 0);
+}
+
+static void menuSalas() {
+    limparTela();
+    exibirBanner();
+    printf("  |                         SALAS                                |\n");
+    printf("  +==============================================================+\n\n");
+    for (int i = 0; i < NUM_SALAS; i++)
+        printf("  %s — %d fileiras x %d colunas (%d assentos)\n",
+            SALAS[i].nome, SALAS[i].fileiras, SALAS[i].colunas,
+            SALAS[i].fileiras * SALAS[i].colunas);
+    pausar();
+}
+
+static void menuIngressos() {
+    int op;
+    do {
+        limparTela();
+        exibirBanner();
+        printf("  |                       INGRESSOS                              |\n");
+        printf("  +==============================================================+\n");
+        printf("  |   [1] Vender ingresso                                        |\n");
+        printf("  |   [2] Cancelar ingresso                                      |\n");
+        printf("  |   [3] Listar ingressos de uma sessao                         |\n");
+        printf("  |   [0] Voltar                                                 |\n");
+        printf("  +==============================================================+\n");
+        printf("  >> ");
+        op = lerInt();
+        switch (op) {
             case 1:
-                printf("teste caso 1\n");
+                venderIngresso(&listaIngressos, listaSessoes, listaFilmes);
+                salvarIngressos(listaIngressos);
                 break;
             case 2:
-                printf("teste caso 2\n");
+                cancelarIngresso(&listaIngressos, listaSessoes);
+                salvarIngressos(listaIngressos);
                 break;
             case 3:
-                printf("teste caso 3\n");
+                listarIngressosDaSessao(listaIngressos, listaSessoes, listaFilmes);
                 break;
-            case 4:
-                printf("teste caso 4\n");
-                break;
-            case 5:
-                printf("teste caso 5\n");
-                break;
-            case 6:
-                printf("teste caso 6\n");
-                break;
-            case 9:
-                printf("OBRIGADO POR USAR NOSSO SISTEMA!\n");
+        }
+    } while (op != 0);
+}
+
+/* ── Main ───────────────────────────────────────────────────────────────── */
+
+int main() {
+    /* garante que a pasta de dados existe */
+#ifdef _WIN32
+    system("mkdir dados 2>nul");
+#else
+    system("mkdir -p dados");
+#endif
+
+    /* carrega dados do disco */
+    listaFilmes    = carregarFilmes();
+    listaSessoes   = carregarSessoes(listaFilmes);
+    listaIngressos = carregarIngressos(listaSessoes);
+
+    int op;
+    do {
+        limparTela();
+        exibirBanner();
+        printf("  |                     MENU PRINCIPAL                           |\n");
+        printf("  +==============================================================+\n");
+        printf("  |   [1] Filmes                                                 |\n");
+        printf("  |   [2] Sessoes                                                |\n");
+        printf("  |   [3] Salas                                                  |\n");
+        printf("  |   [4] Ingressos                                              |\n");
+        printf("  |   [0] Sair                                                   |\n");
+        printf("  +==============================================================+\n");
+        printf("  >> ");
+        op = lerInt();
+        switch (op) {
+            case 1: menuFilmes();   break;
+            case 2: menuSessoes();  break;
+            case 3: menuSalas();    break;
+            case 4: menuIngressos(); break;
+            case 0:
+                limparTela();
+                printf("\n  Obrigado por usar o CineDoom!\n\n");
                 break;
             default:
-                printf("Digite a opção desejada");
-                break;
-            
+                printf("  Opcao invalida.\n");
+                pausar();
         }
+    } while (op != 0);
 
-    } while (!(opcao == 9));
-    
-
+    /* libera memoria */
+    liberarFilmes(listaFilmes);
+    liberarSessoes(listaSessoes);
+    liberarIngressos(listaIngressos);
 
     return 0;
 }
