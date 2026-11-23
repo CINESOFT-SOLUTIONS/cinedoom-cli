@@ -98,7 +98,7 @@ NoFilme *buscarFilmePorCodigo(NoFilme *lista, int codigo) {
 
 /* ── Helpers de exibição ────────────────────────────────────────────────── */
 
-const char *nomeGenero(Genero g) {
+char *nomeGenero(Genero g) {
     switch (g) {
         case ACAO:             return "Acao";
         case COMEDIA:          return "Comedia";
@@ -112,7 +112,7 @@ const char *nomeGenero(Genero g) {
     }
 }
 
-const char *nomeClassificacao(Classificacao c) {
+char *nomeClassificacao(Classificacao c) {
     switch (c) {
         case LIVRE:     return "Livre";
         case DEZ:       return "10 anos";

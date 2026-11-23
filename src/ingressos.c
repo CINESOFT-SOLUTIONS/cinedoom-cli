@@ -159,7 +159,7 @@ void venderIngresso(NoIngresso **lista, NoSessao *sessoes, NoFilme *filmes) {
     int i = 1;
     while (ns) {
         NoFilme *nf = buscarFilmePorCodigo(filmes, ns->dado.cod_filme);
-        const char *titulo = nf ? nf->dado.titulo : "?";
+        char *titulo = nf ? nf->dado.titulo : "?";
         printf("  [%d] %02d/%02d/%04d %02d:%02d — %s (%s)\n",
             i, ns->dado.dia, ns->dado.mes, ns->dado.ano,
             ns->dado.hora, ns->dado.minuto,

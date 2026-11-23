@@ -184,7 +184,7 @@ int haConflito(NoSessao *lista, int id_sala, int dia, int mes, int ano,
 
 void exibirSessao(Sessao s, NoFilme *filmes) {
     NoFilme *nf = buscarFilmePorCodigo(filmes, s.cod_filme);
-    const char *titulo = nf ? nf->dado.titulo : "Filme desconhecido";
+    char *titulo = nf ? nf->dado.titulo : "Filme desconhecido";
     int fim = s.hora * 60 + s.minuto + (nf ? nf->dado.duracao : 0);
 
     printf("\n  Codigo:  %d\n", s.codigo);
@@ -311,7 +311,7 @@ void listarSessoes(NoSessao *lista, NoFilme *filmes) {
     int i = 1;
     while (atual) {
         NoFilme *nf = buscarFilmePorCodigo(filmes, atual->dado.cod_filme);
-        const char *titulo = nf ? nf->dado.titulo : "?";
+        char *titulo = nf ? nf->dado.titulo : "?";
         printf("  [%d] %02d/%02d/%04d %02d:%02d — %s (%s)\n",
             i, atual->dado.dia, atual->dado.mes, atual->dado.ano,
             atual->dado.hora, atual->dado.minuto,
