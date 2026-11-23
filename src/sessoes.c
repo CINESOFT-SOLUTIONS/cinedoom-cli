@@ -11,7 +11,7 @@
 
 int proximoCodigoSessao = 1;
 
-/* Persistencia */
+// Persistencia
 
 typedef struct {
     int codigo;
@@ -110,7 +110,7 @@ void liberarSessoes(NoSessao *lista) {
     }
 }
 
-/* Busca */
+// Busca
 
 NoSessao *buscarSessaoPorCodigo(NoSessao *lista, int codigo) {
     NoSessao *atual = lista;
@@ -130,7 +130,7 @@ int filmeTemSessao(int cod_filme) {
     return 0;
 }
 
-/* Funções Auxiliares */
+// Funcoes Auxiliares
 
 int hojeEmMinutos(int *diaH, int *mesH, int *anoH) {
     time_t t = time(NULL);
@@ -205,7 +205,7 @@ int lerSala() {
     return op;
 }
 
-/* CRUD */
+// CRUD
 
 void cadastrarSessao(NoSessao **lista, NoFilme *filmes) {
     limparTela();
