@@ -9,7 +9,7 @@
 
 int proximoCodigoFilme = 1;
 
-/* ── Persistência ───────────────────────────────────────────────────────── */
+/* Persistencia */
 
 typedef struct {
     int  codigo;
@@ -85,7 +85,7 @@ void liberarFilmes(NoFilme *lista) {
     }
 }
 
-/* ── Busca ──────────────────────────────────────────────────────────────── */
+/* Busca */
 
 NoFilme *buscarFilmePorCodigo(NoFilme *lista, int codigo) {
     NoFilme *atual = lista;
@@ -165,7 +165,7 @@ void menuClassificacao(Classificacao *c) {
     *c = (Classificacao)valores[op];
 }
 
-/* ── CRUD ───────────────────────────────────────────────────────────────── */
+/* CRUD */
 
 void cadastrarFilme(NoFilme **lista) {
     limparTela();

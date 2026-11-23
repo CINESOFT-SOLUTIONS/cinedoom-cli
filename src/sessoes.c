@@ -11,7 +11,7 @@
 
 int proximoCodigoSessao = 1;
 
-/* ── Persistência ───────────────────────────────────────────────────────── */
+/* Persistencia */
 
 typedef struct {
     int codigo;
@@ -110,7 +110,7 @@ void liberarSessoes(NoSessao *lista) {
     }
 }
 
-/* ── Busca ──────────────────────────────────────────────────────────────── */
+/* Busca */
 
 NoSessao *buscarSessaoPorCodigo(NoSessao *lista, int codigo) {
     NoSessao *atual = lista;
@@ -205,7 +205,7 @@ int lerSala() {
     return op;
 }
 
-/* ── CRUD ───────────────────────────────────────────────────────────────── */
+/* CRUD */
 
 void cadastrarSessao(NoSessao **lista, NoFilme *filmes) {
     limparTela();

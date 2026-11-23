@@ -11,7 +11,7 @@ NoFilme   *listaFilmes   = NULL;
 NoSessao  *listaSessoes  = NULL;
 NoIngresso *listaIngressos = NULL;
 
-/* ── Banner ─────────────────────────────────────────────────────────────── */
+/* Banner */
 
 void exibirBanner() {
     printf("\n");
@@ -20,7 +20,7 @@ void exibirBanner() {
     printf("  +==============================================================+\n");
 }
 
-/* ── Menus ──────────────────────────────────────────────────────────────── */
+/* Menus */
 
 void menuFilmes() {
     int op;
@@ -104,7 +104,7 @@ void menuIngressos() {
     } while (op != 0);
 }
 
-/* ── Main ───────────────────────────────────────────────────────────────── */
+/* Main */
 
 int main() {
     /* garante que a pasta de dados existe */

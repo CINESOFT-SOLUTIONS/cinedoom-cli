@@ -12,7 +12,7 @@
 
 int proximoCodigoIngresso = 1;
 
-/* ── Persistência ───────────────────────────────────────────────────────── */
+/* Persistencia */
 
 typedef struct {
     int   codigo;
@@ -142,7 +142,7 @@ int salaLotada(Sessao s) {
     return 1;
 }
 
-/* ── Operações ──────────────────────────────────────────────────────────── */
+/* Operacoes */
 
 void venderIngresso(NoIngresso **lista, NoSessao *sessoes, NoFilme *filmes) {
     limparTela();
