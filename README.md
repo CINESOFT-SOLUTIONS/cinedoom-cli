@@ -56,6 +56,6 @@ Desenvolver um projeto compreendendo uma área real de mercado, contendo:
 ## Como compilar
 
 ```bash
-gcc main.c -o cinedoom
+gcc src/main.c src/filmes.c src/sessoes.c src/ingressos.c src/utils.c -I include -o cinedoom
 ./cinedoom
 ```
