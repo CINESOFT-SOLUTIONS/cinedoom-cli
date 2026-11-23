@@ -13,7 +13,7 @@ NoIngresso *listaIngressos = NULL;
 
 /* ── Banner ─────────────────────────────────────────────────────────────── */
 
-static void exibirBanner() {
+void exibirBanner() {
     printf("\n");
     printf("  +==============================================================+\n");
     printf("  |                      CINEDOOM CLI                            |\n");
@@ -22,7 +22,7 @@ static void exibirBanner() {
 
 /* ── Menus ──────────────────────────────────────────────────────────────── */
 
-static void menuFilmes() {
+void menuFilmes() {
     int op;
     do {
         limparTela();
@@ -42,7 +42,7 @@ static void menuFilmes() {
     } while (op != 0);
 }
 
-static void menuSessoes() {
+void menuSessoes() {
     int op;
     do {
         limparTela();
@@ -62,7 +62,7 @@ static void menuSessoes() {
     } while (op != 0);
 }
 
-static void menuSalas() {
+void menuSalas() {
     limparTela();
     exibirBanner();
     printf("  |                         SALAS                                |\n");
@@ -74,7 +74,7 @@ static void menuSalas() {
     pausar();
 }
 
-static void menuIngressos() {
+void menuIngressos() {
     int op;
     do {
         limparTela();

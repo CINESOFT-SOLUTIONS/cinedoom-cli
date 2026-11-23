@@ -10,7 +10,7 @@
 
 #define ARQUIVO_INGRESSOS "dados/ingressos.bin"
 
-static int proximoCodigoIngresso = 1;
+int proximoCodigoIngresso = 1;
 
 /* ── Persistência ───────────────────────────────────────────────────────── */
 
@@ -103,7 +103,7 @@ int sessaoTemIngresso(int cod_sessao) {
     return 0;
 }
 
-static int sessaoJaOcorreu(Sessao s) {
+int sessaoJaOcorreu(Sessao s) {
     time_t t = time(NULL);
     struct tm *tm = localtime(&t);
     int anoH  = tm->tm_year + 1900;
@@ -119,7 +119,7 @@ static int sessaoJaOcorreu(Sessao s) {
     return 0;
 }
 
-static void exibirMapaAssentos(Sessao s) {
+void exibirMapaAssentos(Sessao s) {
     Sala sala = SALAS[s.id_sala - 1];
     printf("\n  Mapa de assentos — %s\n\n", sala.nome);
     printf("     ");
@@ -134,7 +134,7 @@ static void exibirMapaAssentos(Sessao s) {
     printf("\n  O = livre   X = ocupado\n");
 }
 
-static int salaLotada(Sessao s) {
+int salaLotada(Sessao s) {
     Sala sala = SALAS[s.id_sala - 1];
     for (int f = 0; f < sala.fileiras; f++)
         for (int c = 0; c < sala.colunas; c++)

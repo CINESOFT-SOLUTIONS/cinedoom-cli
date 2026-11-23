@@ -7,7 +7,7 @@
 
 #define ARQUIVO_FILMES "dados/filmes.bin"
 
-static int proximoCodigoFilme = 1;
+int proximoCodigoFilme = 1;
 
 /* ── Persistência ───────────────────────────────────────────────────────── */
 
@@ -98,7 +98,7 @@ NoFilme *buscarFilmePorCodigo(NoFilme *lista, int codigo) {
 
 /* ── Helpers de exibição ────────────────────────────────────────────────── */
 
-static const char *nomeGenero(Genero g) {
+const char *nomeGenero(Genero g) {
     switch (g) {
         case ACAO:             return "Acao";
         case COMEDIA:          return "Comedia";
@@ -112,7 +112,7 @@ static const char *nomeGenero(Genero g) {
     }
 }
 
-static const char *nomeClassificacao(Classificacao c) {
+const char *nomeClassificacao(Classificacao c) {
     switch (c) {
         case LIVRE:     return "Livre";
         case DEZ:       return "10 anos";
@@ -124,7 +124,7 @@ static const char *nomeClassificacao(Classificacao c) {
     }
 }
 
-static void exibirFilme(Filme f) {
+void exibirFilme(Filme f) {
     printf("\n  Codigo:         %d\n", f.codigo);
     printf("  Titulo:         %s\n",  f.titulo);
     printf("  Genero:         %s\n",  nomeGenero(f.genero));
@@ -134,7 +134,7 @@ static void exibirFilme(Filme f) {
         printf("  Descricao:      %s\n", f.descricao);
 }
 
-static void menuGenero(Genero *g) {
+void menuGenero(Genero *g) {
     printf("  Genero:\n");
     printf("  [0] Acao\n");
     printf("  [1] Comedia\n");
@@ -150,7 +150,7 @@ static void menuGenero(Genero *g) {
     *g = (Genero)op;
 }
 
-static void menuClassificacao(Classificacao *c) {
+void menuClassificacao(Classificacao *c) {
     printf("  Classificacao indicativa:\n");
     printf("  [0] Livre\n");
     printf("  [1] 10 anos\n");

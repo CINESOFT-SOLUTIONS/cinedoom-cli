@@ -9,7 +9,7 @@
 
 #define ARQUIVO_SESSOES "dados/sessoes.bin"
 
-static int proximoCodigoSessao = 1;
+int proximoCodigoSessao = 1;
 
 /* ── Persistência ───────────────────────────────────────────────────────── */
 
@@ -132,7 +132,7 @@ int filmeTemSessao(int cod_filme) {
 
 /* ── Helpers ────────────────────────────────────────────────────────────── */
 
-static int hojeEmMinutos(int *diaH, int *mesH, int *anoH) {
+int hojeEmMinutos(int *diaH, int *mesH, int *anoH) {
     time_t t = time(NULL);
     struct tm *tm = localtime(&t);
     *diaH = tm->tm_mday;
@@ -141,7 +141,7 @@ static int hojeEmMinutos(int *diaH, int *mesH, int *anoH) {
     return tm->tm_hour * 60 + tm->tm_min;
 }
 
-static int sessaoNoPassado(Sessao s) {
+int sessaoNoPassado(Sessao s) {
     int diaH, mesH, anoH, agoraMin;
     agoraMin = hojeEmMinutos(&diaH, &mesH, &anoH);
 
@@ -153,7 +153,7 @@ static int sessaoNoPassado(Sessao s) {
     return 0;
 }
 
-static int haConflito(NoSessao *lista, int id_sala, int dia, int mes, int ano,
+int haConflito(NoSessao *lista, int id_sala, int dia, int mes, int ano,
                       int hora, int minuto, int duracao, int ignorarCodigo) {
     int inicioNovo = hora * 60 + minuto;
     int fimNovo    = inicioNovo + duracao;
@@ -182,7 +182,7 @@ static int haConflito(NoSessao *lista, int id_sala, int dia, int mes, int ano,
     return 0;
 }
 
-static void exibirSessao(Sessao s, NoFilme *filmes) {
+void exibirSessao(Sessao s, NoFilme *filmes) {
     NoFilme *nf = buscarFilmePorCodigo(filmes, s.cod_filme);
     const char *titulo = nf ? nf->dado.titulo : "Filme desconhecido";
     int fim = s.hora * 60 + s.minuto + (nf ? nf->dado.duracao : 0);
@@ -195,7 +195,7 @@ static void exibirSessao(Sessao s, NoFilme *filmes) {
     printf("  Termino: %02d:%02d\n", fim / 60, fim % 60);
 }
 
-static int lerSala() {
+int lerSala() {
     printf("  Sala:\n");
     for (int i = 0; i < NUM_SALAS; i++)
         printf("  [%d] %s (%d assentos)\n", i + 1, SALAS[i].nome, SALAS[i].fileiras * SALAS[i].colunas);
